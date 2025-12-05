@@ -10,7 +10,10 @@ interface exerciseType {
     setIsAdded: any,
 }
 
-export default function AddWorkout() {
+export const inputStyling = "p-2 rounded-md border border-gray-500";
+export const buttonStyling = "rounded-md border border-green-500 p-2 bg-green-200 cursor-pointer hover:bg-green-300 ease-in-out duration-300";
+
+export default function AddSet() {
     // const [date, setDate] = useState<Date>(new Date());
     // const [sets, setSets] = useState<number>(0);
     const [reps, setReps] = useState<number>(0);
@@ -23,8 +26,6 @@ export default function AddWorkout() {
     // const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed, add 1
     // const day = String(date.getDate()).padStart(2, '0');
     // const formattedDate = `${year}-${month}-${day}`;
-    const inputStyling = "p-2 rounded-md border border-gray-500";
-    const buttonStyling = "rounded-md border border-green-500 p-2 bg-green-200 cursor-pointer hover:bg-green-300 ease-in-out duration-300";
     
     const handleSubmit = (e: any) => {
         e.preventDefault();
