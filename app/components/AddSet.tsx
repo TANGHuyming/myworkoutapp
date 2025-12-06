@@ -59,7 +59,7 @@ export default function AddSet() {
                 {/* <label htmlFor="date">Enter Date: </label>
                 <input className={inputStyling} type="date" name="date" id="date" value={formattedDate} onChange={(e) => setDate(new Date(e.target.value))}/> */}
 
-                <label htmlFor="workout">Choose Your Exercise: </label>
+                <label htmlFor="exercise">Choose Your Exercise: </label>
                 <button type="button" className={buttonStyling} id="exercise" name="exercise" onClick={handleClick}>Exercise List</button>
 
                 <div className="col-span-2">
@@ -76,7 +76,7 @@ export default function AddSet() {
                 <input className={inputStyling} type="number" name="weight" id="weight" value={String(weight)} onChange={(e) => setWeight(Number(e.target.value))}/>
 
                 <label htmlFor="notes">Additional notes: </label>
-                <textarea className={inputStyling} name="notes" id="notes" rows={5} value={notes} onChange={(e) => setNotes(e.target.value)}/>
+                <textarea className={inputStyling} name="notes" id="notes" rows={5} placeholder="Notes..." value={notes} onChange={(e) => setNotes(e.target.value)}/>
 
                 <button className={`${buttonStyling} col-span-2`} type="submit">Submit</button>
             </form>

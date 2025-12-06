@@ -39,10 +39,10 @@ export default function AddExercise() {
                 className="grid grid-cols-2 w-8/10 justify-center items-center gap-2 p-5 rounded-lg bg-gray-200 shadow-lg shadow-gray-500"    
             >
                 <label htmlFor="name">Enter the exercise name: </label>
-                <input className={inputStyling} type="text" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
+                <input className={inputStyling} type="text" name="name" id="name" placeholder="Name..." value={name} onChange={(e) => setName(e.target.value)}/>
             
                 <label htmlFor="description">Enter the exercise description: </label>
-                <textarea className={inputStyling} name="description" id="description" rows={5} value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                <textarea className={inputStyling} name="description" id="description" rows={5} placeholder="Description..." value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
             
                 <label htmlFor="image">Enter the exercise image: </label>
                 <input className={inputStyling} type="file" name="image" id="image" onChange={(e) => handleImage(e)}/>
