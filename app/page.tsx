@@ -2,6 +2,7 @@ import Image from "next/image";
 import AddSet from "./components/AddSet";
 import AddExercise from "./components/AddExercise";
 import MaxRepChart from "./components/MaxRepChart";
+import WorkoutTimer from "./components/WorkoutTimer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <AddSet />
       <AddExercise />
       <MaxRepChart />
+      <WorkoutTimer />
     </div>
   );
 }

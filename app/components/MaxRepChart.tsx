@@ -1,6 +1,7 @@
 "use client";
 import Chart from "chart.js/auto";
 import { useEffect } from "react";
+import { GiWeightLiftingUp } from "react-icons/gi";
 
 interface dataType {
     date: Date,
@@ -9,7 +10,6 @@ interface dataType {
 };
 
 export default function MaxRepChart() {
-    // const oneRmChart : HTMLCanvasElement = document.getElementById("oneRmChart") as HTMLCanvasElement;
     const data = [
         {date: new Date("2025-12-06T12:41:00Z"), exercise: "Squat", maxWeight: 100},
         {date: new Date("2026-12-06T12:41:00Z"), exercise: "Squat", maxWeight: 110},
@@ -20,7 +20,7 @@ export default function MaxRepChart() {
 
     ]
 
-    const createChart = (canvas: any, type: any, data: dataType[], filter: String) => {
+    const createChart = (canvas: any, type: any, data: dataType[], filter: String, backgroundColor: String, borderColor: String) => {
         new Chart(
             canvas,
             {
@@ -35,6 +35,8 @@ export default function MaxRepChart() {
                             data: data.filter((d) => d.exercise === filter).map((d) => {
                                 return d.maxWeight;
                             }),
+                            backgroundColor: backgroundColor,
+                            borderColor: borderColor,
                         }
                     ]
                 }
@@ -48,33 +50,34 @@ export default function MaxRepChart() {
         const benchOneRmChart : HTMLCanvasElement = document.getElementById("benchOneRmChart") as HTMLCanvasElement;
         
         const charts = [
-            {canvas: squatOneRmChart, line: "line", data, filter: "Squat"},
-            {canvas: deadliftOneRmChart, line: "line", data, filter: "Deadlift"},
-            {canvas: benchOneRmChart, line: "line", data, filter: "Benchpress"},
+            {canvas: squatOneRmChart, line: "line", data, filter: "Squat", bg: "#726eff", bd: "#0800ff" },
+            {canvas: deadliftOneRmChart, line: "line", data, filter: "Deadlift", bg: "#ff7575", bd: "#ff0000"},
+            {canvas: benchOneRmChart, line: "line", data, filter: "Benchpress", bg: "#83ff7a", bd: "#11ff00"},
         ]
 
-        charts.map((chart) => createChart(chart.canvas, chart.line, chart.data, chart.filter))
+        charts.map((chart) => createChart(chart.canvas, chart.line, chart.data, chart.filter, chart.bg, chart.bd))
 
     }, []);
 
     return(
-        <div className="bg-gray-300 p-10 grid grid-cols-2 justify-center items-center gap-x-2 gap-y-4">
+        <div className="bg-gray-300 p-10 grid grid-cols-2 justify-center items-center gap-2 select-none">
             <h2 className="text-3xl font-bold mb-5 flex flex-row justify-center items-center gap-5 col-span-2">
+                <GiWeightLiftingUp className="text-2xl expand"/>
                 Your Heaviest Lifts
             </h2>
 
             <div>
-                <h2 className="wave text-xl font-semibold mb-5 flex flex-row justify-center items-center gap-5">Back Squat 1RM</h2>
+                <h2 className="wave text-xl font-semibold mb-5 flex flex-row justify-center items-center">Back Squat 1RM</h2>
                 <canvas id="squatOneRmChart" className="bg-gray-200 p-2 rounded-lg shadow-lg shadow-gray-400"></canvas>
             </div>
 
             <div>
-                <h2 className="wave text-xl font-semibold mb-5 flex flex-row justify-center items-center gap-5">Romanian Deadlift 1RM</h2>
+                <h2 className="wave text-xl font-semibold mb-5 flex flex-row justify-center items-center">Romanian Deadlift 1RM</h2>
                 <canvas id="deadliftOneRmChart" className="bg-gray-200 p-2 rounded-lg shadow-lg shadow-gray-400"></canvas>
             </div>
 
             <div>
-                <h2 className="wave text-xl font-semibold mb-5 flex flex-row justify-center items-center gap-5">Barbell Benchpress 1RM</h2>
+                <h2 className="wave text-xl font-semibold mb-5 flex flex-row justify-center items-center">Barbell Benchpress 1RM</h2>
                 <canvas id="benchOneRmChart" className="bg-gray-200 p-2 rounded-lg shadow-lg shadow-gray-400"></canvas>
             </div>
         </div>
