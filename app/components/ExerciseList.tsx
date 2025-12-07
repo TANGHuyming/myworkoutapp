@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import ExerciseCard from "./ExerciseCard";
 import ExerciseCard2 from "./ExerciseCard2";
-import { IoIosSearch } from "react-icons/io";
 import { IoFilter } from "react-icons/io5";
 import { MdClear } from "react-icons/md";
 import bicepCurl from "../../public/bicepCurl.jpg";
