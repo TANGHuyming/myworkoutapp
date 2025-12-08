@@ -116,16 +116,7 @@ export default function WorkoutTimer() {
                 <FaClock className="expand text-2xl"/>    
             </h2>
 
-            <div id="clock" className="clock justify-self-center items-self-center">
-                <div className="wrap">
-                    <span className="hour"></span>
-                    <span className="minute"></span>
-                    <span className="second"></span>
-                    <span className="dot"></span>
-                </div>
-            </div>
-
-            <div className="col-start-2 grid grid-rows-[40px_50px_1fr] gap-5">
+            <div className="col-start-1 grid grid-rows-[40px_50px_1fr] gap-5">
                 <h2 id="timer" className={`${pixelifySans.className} text-5xl font-semibold text-center`}>00:00:00:00</h2>
                 <div className="grid grid-col-3 gap-5">
                     <button id="start" type="button" className="col-start-1 p-2 bg-green-200 border-green-400 border rounded-md shadow-gray-400 shadow-lg cursor-pointer hover:bg-green-400 transition-all duration-300 ease-in-out">{start}</button>
@@ -133,7 +124,7 @@ export default function WorkoutTimer() {
                     <button id="reset" type="button" className="col-start-3 p-2 bg-red-200 border-red-400 border rounded-md shadow-gray-400 shadow-lg cursor-pointer hover:bg-red-400 transition-all duration-300 ease-in-out">Reset</button>
                 </div>
 
-                <div className="overflow-y-scroll max-h-[225px]">
+                <div className="col-start-1 overflow-y-scroll max-h-[225px]">
                     <table className="bg-gray-200 text-lg text-center shadow-lg shadow-gray-400 w-full">
                         <thead>
                             <tr>
@@ -154,6 +145,15 @@ export default function WorkoutTimer() {
                             }
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+            <div id="clock" className="col-start-2 clock justify-self-center items-self-center">
+                <div className="wrap">
+                    <span className="hour"></span>
+                    <span className="minute"></span>
+                    <span className="second"></span>
+                    <span className="dot"></span>
                 </div>
             </div>
         </div>
