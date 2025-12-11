@@ -64,12 +64,19 @@ export default function MaxRepChart() {
         const squatOneRmChart : HTMLCanvasElement = document.getElementById("squatOneRmChart") as HTMLCanvasElement;
         const deadliftOneRmChart : HTMLCanvasElement = document.getElementById("deadliftOneRmChart") as HTMLCanvasElement;
         const benchOneRmChart : HTMLCanvasElement = document.getElementById("benchOneRmChart") as HTMLCanvasElement;
-        
+
         const charts = [
             {canvas: squatOneRmChart, line: "line", data, filter: "Squat", bg: "#726eff", bd: "#0800ff" },
             {canvas: deadliftOneRmChart, line: "line", data, filter: "Deadlift", bg: "#ff7575", bd: "#ff0000"},
             {canvas: benchOneRmChart, line: "line", data, filter: "Benchpress", bg: "#83ff7a", bd: "#11ff00"},
         ]
+
+        for(let i = 0; i < charts.length; i++) {
+            const chart = Chart.getChart(charts[i].canvas);
+            if(chart) {
+                chart.destroy();
+            }
+        }
 
         charts.map((chart) => createChart(chart.canvas, chart.line, chart.data, chart.filter, chart.bg, chart.bd))
 

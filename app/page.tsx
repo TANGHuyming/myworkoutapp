@@ -1,8 +1,8 @@
-import AddSet from "./components/AddSet";
-import AddExercise from "./components/AddExercise";
-import MaxRepChart from "./components/MaxRepChart";
-import WorkoutTimer from "./components/WorkoutTimer";
-import Welcome from "./components/Welcome";
+import AddSet from "./_components/AddSet";
+import AddExercise from "./_components/AddExercise";
+import MaxRepChart from "./_components/MaxRepChart";
+import WorkoutTimer from "./_components/WorkoutTimer";
+import Welcome from "./_components/Welcome";
 
 export default function Home() {
   return (
